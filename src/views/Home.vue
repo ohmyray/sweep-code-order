@@ -1,18 +1,31 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- 骨架屏 -->
+    <van-skeleton title
+                  avatar
+                  :row="3"
+                  :loading="loading"></van-skeleton>
+
+    <!-- header导航 -->
+    <Header></Header>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
+import Header from '@/components/Home/header'
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    Header
+  },
+  data () {
+    return {
+      loading: true
+    }
+  },
+  mounted () {
+    this.loading = false
   }
 }
 </script>
